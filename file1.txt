@@ -1,0 +1,297 @@
+Vermont
+-------
+	Date_Place:
+	Certain out-of-state vendors are now required to register with the State of Vermont and collect and remit sales tax beginning July 1, 2018
+	Type:
+	
+
+Wyoming
+-------
+	Date_Place:
+
+	Type:
+
+	
+North Dakota
+------------
+	Date_Place:
+
+	Type:
+	
+
+Mississippi
+-----------
+	Date_Place:
+
+	Type:
+	Sale of tangible personal property, Farm tractors and logging equipment, Farm implements, Sales to electric power associations, Certain machinery, machine parts and equipment located on and used in the operation of certain publicly-owned port facilities Manufacturing machinery, Automobiles and light trucks, Sales of automobiles and trucks 10,000 pounds or less gross weight to electric power associations, Sales of automobiles and trucks over 10,000 pounds gross weight to electric power associations, Trucks (greater than 10,000.00 lbs.), aircraft, semitrailers, mobile homes and modular homes Motor-cycles, mopeds, motor bikes, boats, all-terrain vehicles (ATV's), ​trailers, or other equipment, Materials to railroads for use in track and track structure, Other tangible personal property including alcoholic beverages and beer
+
+Nevada
+------
+	Date_Place:
+	Effecive April 1, 2017, the Sales and Use Tax rates for Washoe and Clark Counties will increase — Washoe will go from 7.725 to 8.265 percent and Clark from 8.15 to 8.25 percent.
+	Type:
+		
+
+Missouri
+--------
+	Date_Place:
+
+	Type:
+	The state’s sales tax is imposed on the purchase price of tangible personal property or taxable service sold at retail. Use tax is imposed on the storage, use or consumption of tangible personal property in this state. The 4.225 percent state sales and use tax is distributed into four funds to finance portions of state government – General Revenue (3.0 percent), Conservation (0.125 percent), Education (1.0 percent), and Parks/Soils (0.10 percent). 
+
+Wisconsin
+---------
+	Date_Place:
+
+	Type:
+	County sales tax, Baseball stadium tax, Football stadium tax, Use tax, Local expo tax, Premier resort tax
+	
+Minnesota
+---------
+	Date_Place:
+
+	Type:
+	General Rate Sales Tax, ​Residential Solid-Waste Management Services, ​Commercial Sold-Waste Management Services, Construction/Demolition/Other Waste Services, ​Liquor Gross Receipts Sales Liquor Gross Receipts Use, ​Mobile Home and Park Trailer Sales, Solvent Fee Sales, ​Use Tax Purchases, ​Variable Rate Purchases and ​Variable Rate Purchases and ​Interstate Motor Carrier.
+
+Washington
+----------
+	Date_Place:
+	Effective October 1, 2018, out-of-state businesses making more than $100,000 in gross retail sales or 200 transactions to Washington customers are required to register in Washington State and collect or submit retail sales tax to the state.
+	Type:
+	retail sales or 200 transactions to Washington customers are required to register in Washington State and collect or submit retail sales tax to the state.
+	
+Virginia
+--------
+	Date_Place:
+
+	Type:
+	 all sales, leases, and rentals of tangible personal property in or for use in Virginia, as well as accommodations and certain taxable services, are subject to Virginia Sales and Use Tax. Sales of aircraft, watercraft, and motor vehicles are taxed at different rates than those listed above
+
+North Carolina
+--------------
+	Date_Place:
+
+	Type:
+		
+
+
+New Jersey
+----------
+	Date_Place:
+
+	Type:
+	
+Ohio
+----
+	Date_Place:
+	The sales and use tax rate will increase from 7.00 % to 7.25 % effective April 1, 2019 for Gallia County. There were no sales and use tax county rate changes effective January 1, 2019
+
+	Type:
+	
+
+Pennsylvania
+------------
+	Date_Place:
+
+	Type:
+	
+Illinois
+-------
+	Date_Place:
+	Effective January 1, 2019, certain taxing jurisdictions have imposed a local sales tax or changed their local sales tax rate on general merchandise sales. 
+	Type:
+	business district sales tax. county public safety tax. home rule sales tax. Locally imposed sales tax does not apply to sales of qualifying food, drugs, and medical appliances. items that must be titled or registered by an agency of Illinois state government and reported on dealer-filed transaction returns
+
+Texas
+-----
+	Date_Place:
+
+	Type:
+	CST - City Sales Tax, IDC - Economic and Industrial Development, SMR - Municipal Street Maintenance and Repair
+
+
+DC
+--
+	Date_Place:
+
+	Type:
+	The rate structure for sales and use tax that is presently in effect. General rate for tangible personal property and selected services. Tickets to legitimate theaters and entertainment venues. Restaurant meals, liquor for consumption on the premises, and rental vehicles. Alcoholic beverages sold for off-the-premises consumption. Rental or leasing of rental vehicles and utility trailers. Tickets to baseball games or baseball-related events at Nationals Park and for baseball-related tangible personal property sold at Nationals Park. Tickets to events at the Capital One Arena or for event-related tangible personal property sold at Capital One Arena. Rental or leasing of rental vehicles and utility trailers. Hotels (transient accommodations). Parking motor vehicles in commercial lots. Alcoholic beverages manufactured by a holder of a manufacturer’s license and beverages brought into DC by the holder of a wholesaler’s license.
+
+
+Rhode Island
+------------
+	Date_Place:
+	
+	Type:
+
+
+Michigan
+--------
+	Date_Place:
+	Effective May 1, 2019, the new prepaid diesel fuel sales tax rate is 15.8 cents per gallon
+	Type:
+	
+
+Kentucky
+--------
+	Date_Place:
+	​Nonprofit Sales Tax Exemption Goes Into Effect March 26, 2019
+	Type:
+	Kentucky Sales and Use Tax is imposed at the rate of 6 percent of gross receipts or purchase price. There are no local sales and use taxes in Kentucky. Sales Tax is imposed on the gross receipts derived from both retail sales of tangible personal property, digital property, and sales of certain services in Kentucky. ​Use Tax is imposed on the purchase price of tangible personal property, digital property purchased for storage, use or other consumption in Kentucky
+
+Oregon
+------
+	Date_Place:
+
+	Type:
+	Oregon doesn't have a general sales or use/transaction tax.
+
+
+
+New Hampshire
+-------------
+	Date_Place:
+
+	Type:
+	Montana does not have a general sales, use, or transaction tax.
+
+Montana
+-------
+	Date_Place:
+
+	Type:
+	Montana does not have a general sales, use, or transaction tax.
+
+Alabama
+-------
+       Date_Place:
+	tax rate changes are set to take effect in Alabama on October 1, 2018. The city of Bay Minette is increasing the general lodgings tax rate from 3% to 7%. Sales and use tax rates are changing as follows in the city of Hoover. On January 14, 2019 the governing body of the Town of Goldville adopted a Resolution to repeal the Town’s sales tax effective April 1, 2019. Sales made in the Town of Goldville on or after April 1, 2019, will continue to be subject to county and state sales tax; however, the Town of Goldville portion should cease being collected on sales as of that date. 
+	Type:
+	General rate, from 3% to 3.5% Admissions to places of amusement and entertainment, from 3% to 3.5%. Retail selling price of food for human consumption sold through vending machines, from 3% to 3.5%. Net difference paid for machines, machinery, and equipment used in planting, cultivating, and harvesting farm products, from 1% to 3.5%. Machines and parts and attachments for machines used in manufacturing tangible personal property, from 2% to 3.5%. In the town of Red Level, sales and use tax rates are increasing from 2% to 2.5% for the following: General rate Admissions to places of amusement and entertainment Retail selling price of food for human consumption sold through vending machines. Net difference paid for machines, machinery, and equipment used in planting, cultivating, and harvesting farm products. Machines and parts and attachments for machines used in manufacturing tangible personal property.Net difference paid for all automotive vehicles, truck trailers, semi-trailers, and house trailers
+
+Alaska
+------
+	Date_Place:
+	Pursuant to the Alaska Regulatory Commission Order R-18-001(5), effective 1/1/2019.
+	Type:
+	the AUSF rate decreases from .19 to .10.  The following tax types are affected: State Universal Service Fund. Universal Service Fund (Wireless). Universal Service Fund (VoIP). Universal Service Fund (Other) 
+
+
+Arkansas
+--------
+	Date_Place:	
+	The following changes in Local Sales and Use Taxes will be effective October 1, 2017. Per notice from Arkansas Rural Strategies, administrater of the AR High Cost Fund for 2018, the State USF rate will increase to 7.25% effective September 1, 2018. BLYTHEVILLE Increasing to 1.5% 47-05 EUREKA SPRINGS Increasing to 2.375% 08-01. Many local sales and use tax rates are set to change in Arkansas Baxter County, Newton County, Piggott (Clay County), Sevier County. Calico Rock (Izard County), Lincoln County, Montgomery County, Sherwood (Pulaski County), Siloam Springs (Benton County), Walnut Ridge (Lawrence County), Bentonville (Benton County), Brookland (Craighead County), Cabot (Lonoke County)
+	Type:
+	The same rules used in the collection of the State Sales and Use Tax will be followed in the collection of the additional Local Sales and Use Tax. Ark. Code Ann. ANNEXATIONS. State Universal Service Fund.
+
+Connecticut
+-----------
+	Date_Place:
+	
+	Type:	
+	Sales Tax Rates.  There is only one statewide sales and use tax.  There are no additional sales taxes imposed by local jurisdictions in Connecticut. Applies to the retail sale, lease, or rental of most goods and taxable services. However, there are exceptions: The tax on the rental or leasing of a passenger motor vehicle for a period of 30 consecutive calendar days or less is 9.35%. A tax rate of 7.75% applies to the following: the sale for more than $50,000 of most motor vehicles, the sale for more than $5,000 of jewelry (whether real or imitation), the sale for more than $1,000 of an article of clothing or footwear intended to be worn on or about the human body, a handbag, luggage, umbrella, wallet or watch. Sales and Use Taxes on Computer-Related Services and Sales of Tangible Personal Property. A sales and use tax rate of 2.99% applies to the sale of vessels, motors for vessels and trailers used for transporting a vessel. 
+
+California
+----------
+	Date_Place: 
+	California City & County Sales & Use Tax Rates (effective April 1, 2019). Acampo, San Joaquin Acto, Los Angeles Adelaida, San Luis Obispo Adelanto, San Bernardino Adin, Modoc Agoura, Los Angeles .Agoura Hills Los Angeles. Burbank (Los Angeles County)Carpinteria (Santa Barbara County)from % to %. Chowchilla (Madera County) from % to %. Coalinga (Fresno County): from % to % Covina (Los Angeles County): from % to %
+	Type:
+
+
+Delaware
+--------
+	Date_Place:
+
+	Type:
+	Delaware does not impose a state or local sales tax, but does impose a gross receipts tax on the seller of goods (tangible or otherwise) or provider of services in the state. Business and occupational gross receipts tax rates range from 0.0945% to 1.9914%, depending on the business activity
+
+
+Georgia
+-------
+	Date_Place:
+	GEORGIA SALES AND USE TAX RATE CHART. Effective April 1, 2019 (updated 3/20/19). The state sales and use tax rate is 4%.
+
+
+Hawaii
+------
+	Date_Place:
+	Oahu/Honolulu County has an additional 0.5% county surcharge (combined GET rate is 4.5%).
+	Type:
+	Hawaii does not have a sales tax; instead, it is a General Excise Tax (GET) which is assessed on all business activities. The GET is imposed at 4% state, Sellers may decide to collect the 4% state rate from their buyers. They can collect up to 4.166% tax from their buyers
+
+
+Idaho
+-----
+	Date_Place:
+	Effective 4.1.2015, repealed the Other/Streaming Internet Video from the Idaho State Sales Tax. 
+	Type:
+	Some Idaho resort cities and three auditorium districts have a local sales tax in addition to the state sales tax. These local sales taxes are sometimes also referred to as local "option" taxes, Resort cities have a choice in what's taxed and can include everything that's subject to the state sales tax. Some, but not all, choose to limit the local sales tax to lodging, alcohol by the drink, and restaurant food, Auditorium districts are restricted to charging a local sales tax only for lodging, Digital Goods/Streaming Video was repealed from both the Sales and Use Tax.
+
+Indiana
+-------
+	Date_Place:
+	Effective Date Rate April 1, 2008 thru present	7% Dec. 1, 2002 thru March 31, 2008 6% Jan. 1, 1983. Maryland and Indiana to tax remote sales starting October 1.
+	Type:
+	Indiana to exempt sales tax as a service. Indiana’s sales tax is seven percent.
+
+
+Iowa
+----
+	Date_Place:
+	ADAIR Bridgewater ADAIR Casey ADAIR Fontanelle ADAIR Greenfield ADAIR Orient ADAIR Stuart ADAIR
+	Type:
+	Hotel Motel Effective Date	Locally Imposed Hotel Motel Rates. DOR ADOPTS RULE ON SALES, USE TAXREBATES FOR RACEWAY OPERATORS. New rule on the tax treatment of state sales and use taxrebates that are available to some owner
+
+
+Louisiana
+---------
+	Date_Place:
+	Louisiana hurricane preparedness sales tax holiday starts May 26
+	Type:
+	Louisiana hurricane preparedness sales tax holiday starts May 26
+
+Maryland
+--------
+	Date_Place:
+	Effective January 3, 2008, the Maryland sales and use tax rate is 6 percent, as follows.
+	Type:
+	1 cent on each sale where the taxable price is 20 cents. 2 cents if the taxable price is at least 21 cents but less than 34 cents, 5 cents if the taxable price is at least 67 cents but less than 84 cents. 6 cents if the taxable price is at least 84 cents. tax is imposed on short-term passenger car and recreational vehicle rentals, short-term truck rentals, new mobile homes and modular buildings, vending machine sales, alcoholic beverages. 
+
+
+Massachusetts
+-------------
+	Date_Place:
+
+	Type:
+	The Massachusetts sales tax is 6.25% of the sales price or rental charge on tangible personal property, telecommunication services. Sales tax is generally collected by the seller. sales price or rental charge on tangible personal property, including property purchased by phone, mail order, and online where sales tax was not collected or was paid at a lower tax rate. Use tax is generally paid directly to Massachusetts by the purchaser.
+
+
+Arizona
+-------
+	Date_Place:
+	Town Council agreed with with staff’s recommendation and voted on September 13, 2018 to increase the sales tax to 1.9%, effective December 1, 2018.
+	Type:
+	Advertising,Amusements, exhibitions, construction contractors, speculative builders, owner-builders who are not speculative builders, Feed at Wholesale, Job printing, Manufactured Buildings,Timbering and other extraction, Publishing and periodical distribution, Hotels,Rental, leasing, and licensing of use of real property, Rental of tangible personal property, Restaurants and bars, Retail sales: mesure of tax; burden exlusions Retail sales: food for home consumption Telecommunications Transportation for hire Utility services. Mining–Nonmetal, Utilities, Communications, Transporting, Private (Rail) Car,Pipeline,Publication,Job Printing, Restaurants and Bars, Amusement, Commercial Lease, Personal Property Rental, Contracting–Prime, Retail, Mining, Transient Lodging, Online Lodging Marketplace, Use Tax–Utilities, Use Tax Purchases, Use Tax From Inventory, Telecommunications Devices, Municipal Water, Jet Fuel Tax, Rental Car Surcharge, Stadium, Telecommunications, Prepaid Wireless, Advertising, Amusement, Speculative Builder, Owner Builder, Feed at Wholesale, Job Printing, Timbering and Other Extraction, Manufactured Buildings, Publication, Hotels, Residential Rental, Leasing & Licensing, Commercial Rental, Leasing & Licensing for Use Rental, Leasing, & Licensing for Use of Tangible Personal Property Restaurant and Bars, Retail Sales, Communications, Retail Sales Food for Home Consumption, Transporting, Wastewater Removal Services
+
+South Carolina
+--------------
+	Date_Place:
+	Effective May 1, 2018, Spartanburg County's new Sales and Use Tax rate is 7% instead of 6%. The May 2018 Sales and Use Tax return (due June 20, 2018) will be the first month you will need to report the new local tax. 
+	Type:
+	Sales of unprepared foods will be exempt from the 1% Capital Projects Tax and the 6% state Sales and Use Tax. people using food stamps. All other sales or purchases in Spartanburg County are subject to the 6% state Sales and Use Tax and the 1% Capital Projects Tax. Williamsburg County will impose a 1% Capital Projects Tax. Local Option Tax is still in effect ,Education Capital Improvement Tax,Motor Vehicles, Building Materials,Sales tax on food & liquor for immediate consumption.
+
+Colorado
+--------
+	Date_Place:
+
+	Type:
+	Food for home consumption, School-related sales, Machinery and machine tools, Biogas production system components, Gas, electricity, etc., for residential use, Property used in space flight, Occasional sales for charitable organizations, Machinery or machine tools equipment used for processing recovered materials per business list on Public Health & Environment, Farm equipment, Sales on retail marijuana and retail marijuana products, Food sold through vending machines, Contact the city, Low-emitting vehicles, Motor vehicles, Renewable Energy Components, Building materials, Beetle wood products, Food for home consumption, School-related sales, Machinery and machine tools, Biogas production system components, Gas, electricity, etc., for residential use, Property used in space flight, Occasional sales for charitable organizations, Machinery or machine tools equipment used for processing recovered materials per business list on Public Health & Environment, Farm equipment, Sales on retail and retail marijuana products, Food sold through vending machines, Low-emitting vehicles, Motor vehicles, Renewable energy components, Building materials, Beetle wood products.
+ 
+
+Utah
+----
+	Date_Place:
+	On Nov. 6, 2018 Utah voters approved Proposition 3, expanding Medicaid in Utah and raising the statewide sales tax rate from 4.7 to 4.85 percent starting April 1, 2019. Provo Imposes Botanical, Cultural, Recreational and Zoological Tax. Naples Imposes City or Town Option Sales and Use Tax. Tooele County and Sanpete County 
+	Type:
+	city or town to impose a botanical, cultural, recreational and zoological organizations or facilities tax of .10 percent on taxable sales. The new combined sales and use tax rate in Provo will be 6.85 percent. Counties Impose County Option Sales and Use Tax to Fund Highways and Public Transit tax of .25 percent to fund highways and public transit, highways and public transit tax county-wide at .25 percent. On Nov. 6, 2018 Utah voters approved Proposition 3, expanding Medicaid in Utah and raising the statewide sales tax rate from 4.7 to 4.85 percent starting April 1, 2019. As a result, the combined sales tax rate will increase .15 percent in all Utah jurisdictions. 
