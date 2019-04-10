@@ -50,8 +50,8 @@ def run_and_plot(session_, input_tensor_, messages_, encoding_tensor):
     plot_similarity(messages_, message_embeddings_, 90)
 
 
-sample_path = "/Users/avinash.v/Projects/indix/nlp/data/tax-files/walhalla-memo.pdf"
 sample_path = "/Users/avinash.v/Downloads/Tagging/Town of Hauchuca Sales-Tax-Increase.pdf"
+sample_path = "/Users/avinash.v/Projects/indix/nlp/data/tax-files/walhalla-memo.pdf"
 with open(sample_path, "rb") as f:
     pdf = pdftotext.PDF(f)
     module_url = "https://tfhub.dev/google/universal-sentence-encoder/2"  # @param ["https://tfhub.dev/google/universal-sentence-encoder/2", "https://tfhub.dev/google/universal-sentence-encoder-large/3"]
