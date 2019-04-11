@@ -3,9 +3,23 @@ from processData.embedding import fileNames
 from itertools import islice
 import re
 
-testPdf = '/Users/avinash.v/Projects/indix/nlp/data/tax-files/113test.pdf'
+import os
+this_dir, _ = os.path.split(__file__)
+
+
+testPdf = ['113test.pdf']
+testPdf = list(map(lambda file : os.path.join(this_dir,"data",file),testPdf))
+
+# testPdf = '/Users/avinash.v/Projects/indix/nlp/data/tax-files/113test.pdf'
+testPdf = testPdf[0]
+
 
 def processPdf(fileName: ''):
+    """
+    takes a pdf and splits into pararagraphs based on seen heuristics
+    :param fileName: pdf for processing/extracting
+    :return:
+    """
     with open(fileName, "rb") as f:
         pdf = pdftotext.PDF(f)
         paragraphs = []
@@ -15,9 +29,10 @@ def processPdf(fileName: ''):
         # Iterate over all the pages
         for i in range(len(pdf)):
             page = pdf[i]
-            # print (para_separation(page))
-            pgs = paragraphs.extend(paragraph_split(page))
-        return paragraphs
+
+            paragraphs.extend(paragraph_split(page))
+    return paragraphs
+
 
 def window(seq, n=2):
     it = iter(seq)
@@ -63,22 +78,37 @@ def para_separation(data):
     return result
 
 def paragraph_split(data):
+    """
+
+    :param data: text representation of each page of a pdf
+    :return: list of paragraphs (that have been split) based on seen heuristics
+    """
+
+    # we will initially split based on .\n
     pattern= r"(\.\n){1,}"
     replacePattern = '----'
+
     paragraphs = re.sub(pattern,replacePattern,data).split(replacePattern)
-    # paragraphs = re.split(pattern,data)
-    # print(paragraphs)
+
     return paragraphs
 
 def flattenParagraph(paragraph, splitOnNewLine = True):
 
+    """
+    splitting a paragraphs into multiple lines.
+    :param paragraph:
+    :param splitOnNewLine: flag to decide whether to split or not
+    :return:
+    """
     # as a first cut we will split on new line and remove special characters (keep only ascii)
     nonAsciiPattern = r'[^\x00-\x7F]+'
+    # eg re.sub(nonAsciiPattern, '', "how are you ? å") -> "how are you ?'
 
     if splitOnNewLine is True:
         lines = paragraph.split('\n')
     else:
         lines = [paragraph]
+
     # replace extra whitespace and nonAscii chars
     lines = list(map(lambda line : re.sub(nonAsciiPattern,' ',
                                           re.sub('\s+',' ',line.strip())), lines))
@@ -90,9 +120,12 @@ def getParagraphs(pdfFile = []):
     paragraphs = processPdf(testPdf)
     return paragraphs
 
-paragraphs = getParagraphs()
+# paragraphs = getParagraphs()
+# print(testPdf)
+paragraphs = processPdf(testPdf)
 
 if __name__ == '__main__':
+
 
     paragraphs = processPdf(testPdf)
     for i in range(len(paragraphs)):

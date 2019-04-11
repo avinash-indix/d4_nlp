@@ -3,6 +3,17 @@ from processData.embedding import *
 from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
 import tensorflow as tf
 
+
+
+def similarity(a,b):
+    s = np.dot(a, b) / (np.linalg.norm(b) * np.linalg.norm(a))
+
+    #todo : will need to do a cleaner job for this check ????
+    if s.shape == ():
+        return s
+    else:
+        return s[0]
+
 def getParagraphScore(paragraphList = [], splitonNewLine = True):
     with tf.Session() as session:
         session.run([tf.global_variables_initializer(), tf.tables_initializer()])
@@ -27,14 +38,15 @@ def getParagraphScore(paragraphList = [], splitonNewLine = True):
                 # compute relavance score for each (date/place and type)
                 for key in average_embeddings.keys():
                     average_embedding = average_embeddings[key]
-                    similarity = np.dot(pg_embedding,average_embedding)/\
-                             (np.linalg.norm(pg_embedding)*np.linalg.norm(average_embedding))
+                    # s = np.dot(pg_embedding,average_embedding)/\
+                    #          (np.linalg.norm(pg_embedding)*np.linalg.norm(average_embedding))
 
+                    s = similarity(pg_embedding,average_embedding)
                     #mean score for each type
                     if paragraphScore.get(key) is None:
-                        paragraphScore[key] = similarity/n
+                        paragraphScore[key] = s/n
                     else:
-                        paragraphScore[key] += (similarity)/n
+                        paragraphScore[key] += (s)/n
 
             print(paragraphScore)
             print(pg)
