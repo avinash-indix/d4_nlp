@@ -44,6 +44,10 @@ def getAnswer(text = '', question = '' , embed = None, session = None, topN = 5)
     # print(answers_with_relavance)
     # sort the above on decreasing order of relavance
     answers_with_relavance = sorted(answers_with_relavance, key = lambda t : t[0],reverse=True)[:topN]
+
+    # (1.0000001, ''), (0.16796382, '               Lodging:')
+    answers_with_relavance = "\n".join(list(map(lambda tup : "score: " + str(tup[0]) + "\t"+tup[1],
+                                                answers_with_relavance)))
     return answers_with_relavance
 
 
