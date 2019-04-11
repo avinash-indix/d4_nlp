@@ -22,7 +22,9 @@ def getQuestions(files = questionFiles):
     for file in files:
         with open(file, "r") as f:
             q = f.readlines()
-            q = list(map(lambda _q_ : re.sub('\\n','',_q_), q))
+
+            # filter out the questions that are commented out in the list
+            q = list(filter(lambda q : not  q.startswith("#"),list(map(lambda _q_ : re.sub('\\n','',_q_), q))))
             questions.extend(q)
 
     return questions
@@ -36,9 +38,13 @@ def getAnswer(text = '', question = '' , embed = None, session = None, topN = 5)
     :param session: tf session
     :return: list of answers with their relavance score
     """
+
+    common_words_to_remove = ['tax']
     if session is None or embed is None or text is None or text == '':
         return [('',0)]
+
     answers = text.split('\n')
+
     answer_embeddings = session.run(embed(answers))
     qeustion_embedding = session.run(embed([question]))
     answer_relavance_scores = list(map(lambda answer_embedding : similarity(qeustion_embedding,answer_embedding),
@@ -87,8 +93,12 @@ if __name__ == '__main__':
         for i in range(len(pdf)):
             page = pdf[i]
             testData.extend(page.split(r'\n'))
-    testData = "\n".join(testData)
+    testData = "\n".join(testData).lower()
 
+    # we could remove some common words like tax etc
+    words_to_remove = ['tax']
+    for word in words_to_remove:
+        testData = re.sub(word,' ',testData)
     import tensorflow as tf
     import tensorflow_hub as hub
     with tf.Session() as session:
@@ -96,6 +106,6 @@ if __name__ == '__main__':
         for q in questions:
             print("---------")
             print(q)
-            print(getAnswer(testData,q,embed,session))
+            print(getAnswer(testData,q,embed,session,topN=10))
 
 
