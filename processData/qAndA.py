@@ -1,9 +1,12 @@
 from processData.embedding import embed
 from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
 from processData.relavance import similarity, getParagraphScore
+from processData.process_pdf import testPdf
 
 import re
 import os
+import pdftotext
+
 this_dir, _ = os.path.split(__file__)
 
 
@@ -72,6 +75,19 @@ if __name__ == '__main__':
                salestax@nd.gov, or by mail at Office of State Tax Commissioner, Tax Compliance Section, 600 E Boulevard\n\
                Dept. 127, Bismarck, ND 58505-0599\n"
     print(questions)
+
+    testData = []
+    with open(testPdf, "rb") as f:
+        pdf = pdftotext.PDF(f)
+        paragraphs = []
+        # How many pages?
+        print(len(pdf))
+
+        # Iterate over all the pages
+        for i in range(len(pdf)):
+            page = pdf[i]
+            testData.extend(page.split(r'\n'))
+    testData = "\n".join(testData)
 
     import tensorflow as tf
     import tensorflow_hub as hub
