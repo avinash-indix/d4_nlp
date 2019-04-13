@@ -1,6 +1,6 @@
 from processData.embedding import embed
 from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
-from processData.relavance import similarity, getParagraphScore
+from processData.relavance import similarity, getParagraphScore, paragraphsAfterCutoff
 from processData.process_pdf import testPdf
 
 import re
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     testData = []
     with open(testPdf, "rb") as f:
         pdf = pdftotext.PDF(f)
-        paragraphs = []
+        # paragraphs = []
         # How many pages?
         print(len(pdf))
 
@@ -95,12 +95,21 @@ if __name__ == '__main__':
             testData.extend(page.split(r'\n'))
     testData = "\n".join(testData).lower()
 
+    # testdata after getting the relavant paragraphs
+    relParagraphsAfterCutoff = paragraphsAfterCutoff(paragraphs,0.5)
+
+    # clean up the format of relavant paragraphs
+    testData = "\n".join(list(map(lambda tup : "\n".join(tup[1].split("\.")) , relParagraphsAfterCutoff))).lower()
+
+
     # we could remove some common words like tax etc
     words_to_remove = ['tax']
     for word in words_to_remove:
         testData = re.sub(word,' ',testData)
+
     import tensorflow as tf
     import tensorflow_hub as hub
+
     with tf.Session() as session:
         session.run([tf.global_variables_initializer(), tf.tables_initializer()])
         for q in questions:

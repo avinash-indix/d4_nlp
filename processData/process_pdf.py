@@ -77,6 +77,85 @@ def para_separation(data):
 
     return result
 
+
+def formatPage(page = ''):
+    """
+    At present there are at least 2 different paragraphs, listing para ( has a colon and bullet points),
+     normal para (ends with a .)
+    :param page:
+    :return: list of paragraphs
+    """
+    nonAsciiPattern = r'[^\x00-\x7F]+'
+    removePattern = r'^[^a-zA-Z\s]+'
+    inList = False
+
+    #todo: start list is identified by a : at the end
+    startListPattern = r'[a-zA-Z].*:$'
+
+    #todo: list item
+    # listItemPattern = r'^[\t]{1,}'
+    listItemPattern = r'^(\s+)'
+
+    #todo: end of list is beginning with alpha numeric and not ending in :
+    endListPattern = r'^[a-zA-Z].*$'
+    if page == '':
+        return ['']
+    lines = page.split('\n')
+    paragraph = []
+    listParagraphs = []
+
+    # line is either beginList, endList, or listItem
+    for line in lines:
+        l  = re.sub(removePattern,'',line.lower())
+        if re.match(startListPattern,l) is not None:
+            # beginning of list
+            # if not inList:
+            listParagraphs.append(paragraph)
+            paragraph = []
+            inList = True
+            paragraph = []
+            paragraph.append(l)
+            continue
+
+        if re.match(endListPattern, l) is not None:
+            inList = False
+            listParagraphs.append(paragraph)
+            paragraph = []
+            # paragraph.append(line)
+            continue
+
+        if (re.match(listItemPattern,l) is not None and inList is True):
+            paragraph.append(l)
+            continue
+
+    if len(paragraph) > 0:
+        listParagraphs.append(paragraph)
+    listParagraphs = list(filter(lambda p : len(p) > 0, listParagraphs))
+    return listParagraphs
+
+def formatParagraph(paragraph = [], regexList = [(r"(\.\n){1,}",'----'),(r'\. ','\n')]):
+    """
+
+    :param paragraph: text to be formatted
+    :param regexList:
+    :return: formatted text according to the regex list
+    """
+
+    if len(regexList) == 0:
+        return list(paragraph)
+    if type(paragraph) != list and type(paragraph) != map:
+        paragraph = list(paragraph)
+
+    assert(type(paragraph) == list or type(paragraph) == map)
+    fromPattern = regexList[0][0]
+    toPattern = regexList[0][1]
+    regexList = regexList[1:]
+
+
+    formattedParagraph = map(lambda p : re.sub(fromPattern,toPattern,p).split(toPattern),paragraph)
+    return formatParagraph(formattedParagraph,regexList)
+
+
 def paragraph_split(data):
     """
 
@@ -90,6 +169,9 @@ def paragraph_split(data):
 
     paragraphs = re.sub(pattern,replacePattern,data).split(replacePattern)
 
+
+    paragraphs = list(map(lambda p : re.sub(':\n',' ',p), paragraphs))
+    # paragraphs = re.sub(r'\. ','\n',list(map(lambda para : re.sub(r'\s+',' ',para), paragraphs)))
     return paragraphs
 
 def flattenParagraph(paragraph, splitOnNewLine = True):
@@ -122,14 +204,19 @@ def getParagraphs(pdfFile = []):
 
 # paragraphs = getParagraphs()
 # print(testPdf)
-paragraphs = processPdf(testPdf)
+# paragraphs = processPdf(testPdf)
 
 if __name__ == '__main__':
 
-
-    paragraphs = processPdf(testPdf)
-    for i in range(len(paragraphs)):
-        pg = paragraphs[i]
-        # print('----\n',i,pg,'\n')
-        print('----\n')
-        print (flattenParagraph(pg))
+    with open(testPdf, "rb") as f:
+        pdf = pdftotext.PDF(f)
+        for i in range(len(pdf)):
+            page = pdf[i]
+            listParagraphs = formatPage(page)
+            print(listParagraphs)
+            print(len(listParagraphs))
+    # for i in range(len(paragraphs)):
+    #     pg = paragraphs[i]
+    #     # print('----\n',i,pg,'\n')
+    #     print('----\n')
+    #     print (flattenParagraph(pg))
