@@ -1,6 +1,7 @@
 from processData.embedding import avgEmbeddings as average_embeddings
 from processData.embedding import *
-from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
+# from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
+from processData.process_pdf import flattenParagraph
 import tensorflow as tf
 
 

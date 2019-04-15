@@ -1,5 +1,6 @@
 from processData.embedding import embed
-from processData.process_pdf import paragraph_split,flattenParagraph, paragraphs
+from processData.process_pdf import paragraph_split,flattenParagraph, testPdf   #paragraphs,
+from processData.formatPage import getListAndNormal
 from processData.relavance import similarity, getParagraphScore, paragraphsAfterCutoff
 from processData.process_pdf import testPdf
 
@@ -83,20 +84,23 @@ if __name__ == '__main__':
     print(questions)
 
     testData = []
-    with open(testPdf, "rb") as f:
-        pdf = pdftotext.PDF(f)
-        # paragraphs = []
-        # How many pages?
-        print(len(pdf))
+    # with open(testPdf, "rb") as f:
+    #     pdf = pdftotext.PDF(f)
+    #     # paragraphs = []
+    #     # How many pages?
+    #     print(len(pdf))
+    #
+    #     # Iterate over all the pages
+    #     for i in range(len(pdf)):
+    #         page = pdf[i]
+    #         testData.extend(page.split(r'\n'))
+    # testData = "\n".join(testData).lower()
 
-        # Iterate over all the pages
-        for i in range(len(pdf)):
-            page = pdf[i]
-            testData.extend(page.split(r'\n'))
-    testData = "\n".join(testData).lower()
+    (ll,nl) = getListAndNormal(testPdf)
+
 
     # testdata after getting the relavant paragraphs
-    relParagraphsAfterCutoff = paragraphsAfterCutoff(paragraphs,0.5)
+    relParagraphsAfterCutoff = paragraphsAfterCutoff(ll,0.5)
 
     # clean up the format of relavant paragraphs
     testData = "\n".join(list(map(lambda tup : "\n".join(tup[1].split("\.")) , relParagraphsAfterCutoff))).lower()

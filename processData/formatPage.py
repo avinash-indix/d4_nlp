@@ -91,7 +91,7 @@ def format(page = ''):
         p = p.strip()
         print(p)
 
-def newFormat(page = ''):
+def newFormat(page = '',listId = "__list__"):
 
     """
     first standardize page (remove non ascii characters)
@@ -99,6 +99,7 @@ def newFormat(page = ''):
     :param page:
     :return: formatted page
     """
+
 
     def nextCharIndex(i,page):
         nc = page[i+1]
@@ -124,7 +125,8 @@ def newFormat(page = ''):
     newPage = '\n'.join(newPage)
     # newPage = re.sub("\n{2,}","\n",newPage)
     page = newPage
-
+    # print(page)
+    # return
     paragraph = ''
     inList = False
     listOfParagraphs = []
@@ -135,7 +137,7 @@ def newFormat(page = ''):
 
         if c==':':
             inList = True
-            paragraph += ':'
+            paragraph += ':' + listId
             i += 1
             continue
 
@@ -163,16 +165,46 @@ def newFormat(page = ''):
         i += 1
     if len(paragraph) > 0:
         listOfParagraphs.append(paragraph)
+
     for p in listOfParagraphs:
         print("------")
         p = p.strip()
         print(p)
+    return listOfParagraphs
+
+def getListAndNormal(pdfFile,listId = "__list__"):
+    l = []
+    with open(pdfFile, "rb") as f:
+        pdf = pdftotext.PDF(f)
+        for i in range(len(pdf)):
+            # print(" PAGE " + str(i))
+            page = pdf[i]
+
+            l.extend(newFormat(page, "__list__ of changes"))
+    ll = []
+    nl = []
+    for p in l:
+        if listId in p:
+            ll.append(p)
+        else:
+            nl.append(p)
+
+    print("These are the list items")
+    for l in ll:
+        print(l+"\n")
+    print('------')
+    print("These are the normal items")
+    for l in nl:
+        print(l+"\n")
+
+    return (ll,nl)
 
 
 if __name__ == '__main__':
-    with open(testPdf, "rb") as f:
-        pdf = pdftotext.PDF(f)
-        for i in range(len(pdf)):
-            print(" PAGE " + str(i))
-            page = pdf[i]
-            newFormat(page)
+    # with open(testPdf, "rb") as f:
+    #     pdf = pdftotext.PDF(f)
+    #     for i in range(len(pdf)):
+    #         # print(" PAGE " + str(i))
+    #         page = pdf[i]
+    #         newFormat(page)
+    getListAndNormal(testPdf)
