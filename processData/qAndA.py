@@ -4,7 +4,7 @@ import numpy as np
 from processData.formatPage import testPdf, getListAndNormal
 # from processData.process_pdf import paragraph_split,flattenParagraph, testPdf   #paragraphs,
 # from processData.formatPage import getListAndNormal
-# from processData.relavance import similarity
+from processData.relavance import similarity
 from processData.process_pdf import testPdf
 
 import re
@@ -57,12 +57,13 @@ def getEmbeddings(messages = [], session = None):
     average_embedding = np.average(embeddings, axis=0)
 
     # checking whether the averaging is columnwise
-    # print(embeddings[:,0].sum()/len(embeddings),average_embedding[0])
-    assert (embeddings[:,0].sum()/(1.0*len(embeddings)) == average_embedding[0] )
+    print(embeddings[:,0].sum()/len(embeddings),average_embedding[0])
+    assert (np.isclose(embeddings[:,0].sum()/(1.0*len(embeddings)) ,average_embedding[0] ) == True)
 
     return average_embedding
 
-def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n',session = None):
+
+def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n',session = None,listId = "_l_i_s_t_"):
     """
 
     paragraphList -> find relavance to question by computing similarity between question and
@@ -80,7 +81,7 @@ def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n
     # session.run([tf.global_variables_initializer(), tf.tables_initializer()])
     paragraphTupleWithScore = []
     for i in range(len(paragraphList)):
-        pg = paragraphList[i]
+        pg = re.sub(listId,'',paragraphList[i])
         lines = pg.split(splitBy)
 
         pg_embeddings = session.run(embed(lines))
@@ -119,30 +120,41 @@ def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n
         question_embedding = questionEmbedding/np.linalg.norm(question_embedding,axis=1,keepdims=True)
 
         score = np.average(np.multiply(pg_embeddings,question_embedding).sum(axis=1),axis=0)
-        # for i in range(len(lines)):
-        #     pg_embedding = pg_embeddings[i]
-        #     line = lines[i]
-        #     # for pg_embedding in pg_embeddings:
-        #
-        #     s = similarity(pg_embedding,questionEmbedding)
-        #     score += s/n
+        tmp_score = 0.0
+        for i in range(len(lines)):
+            pg_embedding = pg_embeddings[i]
+            line = lines[i]
+            # for pg_embedding in pg_embeddings:
+
+            s = similarity(pg_embedding,questionEmbedding)
+            tmp_score += s/n
         #
         print(score)
         print(pg)
+        print(tmp_score)
+        assert np.isclose(tmp_score,score)
+
         paragraphTupleWithScore.append((score,pg))
+
+    #todo: we will remove the paragraphs which have a negative score and return paragraphs sorted in desc order
+    # of score
+    paragraphTupleWithScore = sorted(list(filter(lambda tup : tup[0] > 0,paragraphTupleWithScore)),
+                                     key = lambda tup : tup[0],reverse=True)
 
     return paragraphTupleWithScore
 
 if __name__ == '__main__':
     q= getQuestions(broadQuestionFiles)
     print(q)
-    (ll,nl) = getListAndNormal(testPdf, listId='_l_i_s_t_')
+    (ll,nl) = getListAndNormal(testPdf)
 
     with tf.Session() as session:
         questionEmbedding = getEmbeddings(q,session=session)
         print(questionEmbedding.shape)
 
-        getParagraphScore(questionEmbedding=questionEmbedding, paragraphList=ll, splitBy='\n', session=session)
+        paragraphTupleWithScore = getParagraphScore(questionEmbedding=questionEmbedding, paragraphList=ll, splitBy='\n', session=session)
+        print("most relavant paragraphs")
+        print(paragraphTupleWithScore)
     assert False
 
 

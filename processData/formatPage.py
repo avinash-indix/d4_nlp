@@ -91,7 +91,7 @@ def format(page = ''):
         p = p.strip()
         print(p)
 
-def newFormat(page = '',listId = "__list__"):
+def newFormat(page = '',listId = "__list__", headerToRemove = ['to:','from:','date:','subject:']):
 
     """
     first standardize page (remove non ascii characters)
@@ -166,13 +166,16 @@ def newFormat(page = '',listId = "__list__"):
     if len(paragraph) > 0:
         listOfParagraphs.append(paragraph)
 
+    #todo:remove paragraphs with headers, maybe we shud do this somewhere else ???
+    listOfParagraphs = list(filter(lambda p: len(list(filter(lambda s: s in p.lower(), headerToRemove))) == 0,
+                                   listOfParagraphs))
     for p in listOfParagraphs:
         print("------")
         p = p.strip()
         print(p)
     return listOfParagraphs
 
-def getListAndNormal(pdfFile,listId = "__list__"):
+def getListAndNormal(pdfFile,listId = "_l_i_s_t_"):
     l = []
     with open(pdfFile, "rb") as f:
         pdf = pdftotext.PDF(f)
