@@ -15,6 +15,7 @@ module_url = "https://tfhub.dev/google/universal-sentence-encoder/2"
 module_url = "https://tfhub.dev/google/universal-sentence-encoder-large/3"
 
 embed = hub.Module(module_url)
+print("Loaded the embedding model from " + module_url)
 
 fileNames = ['/Users/avinash.v/Projects/code/date_nlp.txt',
                  '/Users/avinash.v/Projects/code/type_nlp.txt']
@@ -90,7 +91,7 @@ def train(typeFileList : []):
 
     return averageEmbeddings
 
-avgEmbeddings = train(fileNames)
+# avgEmbeddings = train(fileNames)
 if __name__ == '__main__':
 
 

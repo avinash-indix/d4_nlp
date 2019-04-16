@@ -180,7 +180,7 @@ def getListAndNormal(pdfFile,listId = "__list__"):
             # print(" PAGE " + str(i))
             page = pdf[i]
 
-            l.extend(newFormat(page, "__list__ of changes"))
+            l.extend(newFormat(page, listId))
     ll = []
     nl = []
     for p in l:
