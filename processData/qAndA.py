@@ -6,9 +6,11 @@ from processData.formatPage import testPdf, getListAndNormal
 # from processData.formatPage import getListAndNormal
 from processData.relavance import similarity
 from processData.process_pdf import testPdf
+from sklearn.metrics.pairwise import cosine_similarity
 
 import re
 import os
+from itertools import product
 import pdftotext
 
 this_dir, _ = os.path.split(__file__)
@@ -63,12 +65,13 @@ def getEmbeddings(messages = [], session = None):
     return average_embedding
 
 
-def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n',session = None,listId = "_l_i_s_t_"):
+def getParagraphScore(questions = [],questionEmbedding = None,paragraphList = [], splitBy = '\n',session = None,listId = "_l_i_s_t_"):
     """
 
     paragraphList -> find relavance to question by computing similarity between question and
     each line of paragraphg
 
+    :param question: the question
     :param questionEmbedding: the question embedding for computing the score
     :param paragraphList: list of paragraphs to score
     :param splitonNewLine: how to split. maybe split by \n for list, and . on others ????
@@ -80,9 +83,17 @@ def getParagraphScore(questionEmbedding = None,paragraphList = [], splitBy = '\n
 
     # session.run([tf.global_variables_initializer(), tf.tables_initializer()])
     paragraphTupleWithScore = []
+    print(questions)
     for i in range(len(paragraphList)):
         pg = re.sub(listId,'',paragraphList[i])
         lines = pg.split(splitBy)
+
+        #todo : we will concatenate each line with the question. this shud help create better embeddings
+
+
+        # tuple of question and lines
+        # lines =  list(map(lambda qATup: str(qATup[0])+' '+ str(qATup[1]),product(questions,lines)))
+        # lines = list(map(lambda l : question + l ,lines))
 
         pg_embeddings = session.run(embed(lines))
 
@@ -148,13 +159,18 @@ if __name__ == '__main__':
     print(q)
     (ll,nl) = getListAndNormal(testPdf)
 
+    paragraphTupleWithScore = None
     with tf.Session() as session:
         questionEmbedding = getEmbeddings(q,session=session)
         print(questionEmbedding.shape)
 
-        paragraphTupleWithScore = getParagraphScore(questionEmbedding=questionEmbedding, paragraphList=ll, splitBy='\n', session=session)
-        print("most relavant paragraphs")
-        print(paragraphTupleWithScore)
+        paragraphTupleWithScore = getParagraphScore(q,questionEmbedding=questionEmbedding, paragraphList=ll, splitBy='\n', session=session)
+
+    print("most relavant paragraphs")
+    for pg in paragraphTupleWithScore:
+        print("****")
+        print(pg[0],pg[1])
+    # print(paragraphTupleWithScore)
     assert False
 
 

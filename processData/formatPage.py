@@ -2,6 +2,8 @@ import pdftotext
 from processData.process_pdf import testPdf
 import re
 print(testPdf)
+import spacy
+
 
 def format(page = ''):
     """
@@ -123,7 +125,7 @@ def newFormat(page = '',listId = "__list__", headerToRemove = ['to:','from:','da
         newPage.append(l)
 
     newPage = '\n'.join(newPage)
-    # newPage = re.sub("\n{2,}","\n",newPage)
+    newPage = re.sub("\n{2,}","\n",newPage)
     page = newPage
     # print(page)
     # return
@@ -202,12 +204,21 @@ def getListAndNormal(pdfFile,listId = "_l_i_s_t_"):
 
     return (ll,nl)
 
+def spacySentence(page,model):
+    parsed_page = model(page)
+    for num,sentence in enumerate(parsed_page.sents):
+        print("Sentence {}".format(num+1))
+        print(sentence)
 
 if __name__ == '__main__':
-    # with open(testPdf, "rb") as f:
-    #     pdf = pdftotext.PDF(f)
-    #     for i in range(len(pdf)):
-    #         # print(" PAGE " + str(i))
-    #         page = pdf[i]
-    #         newFormat(page)
+    nlp = spacy.load('en_core_web_sm')
+    with open(testPdf, "rb") as f:
+        pdf = pdftotext.PDF(f)
+        for i in range(len(pdf)):
+            # print(" PAGE " + str(i))
+            page = pdf[i]
+            print(page)
+            print("----spacy sentence----")
+            spacySentence(page,nlp)
+            assert False
     getListAndNormal(testPdf)
