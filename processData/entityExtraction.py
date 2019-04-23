@@ -13,48 +13,94 @@ text = nlp(re.sub('%', ' percent ', text))
 # print(text_)
 
 sentences = [(num + 1, sentence) for num, sentence in enumerate(text.sents)]
-print(sentences)
+# print(sentences)
 
-type = []
+def extractEntities(sentence = None):
+    if sentence is None:
+        return {}
+    ncs = list(sent[1].noun_chunks)
+    # print(ncs)
+
+    rateDict = {}
+    rateDict['where'] = []
+    rateDict['type'] = []
+    rateDict['change'] = []
+    rate = []
+    for nc in ncs:
+        ncdoc = nlp(nc.text)
+
+        ents = list(ncdoc.ents)
+        # print(ents)
+        if len(ents) == 0:
+            if len(ncdoc) == 1:
+                # print(ncdoc.text, ncdoc[0].ent_type_, ncdoc[0].pos_)
+                if (ncdoc)[0].pos_ == 'PROPN':
+                    rateDict['where'].append(ncdoc.text)
+
+            if len(ncdoc) > 1:
+                if "tax" in ncdoc.text or "Tax" in ncdoc.text:
+                    rateDict['type'].append(ncdoc.text)
+                # print(ncdoc.text)
+            continue
+        for ent in ents:
+            d = nlp(ent.text)[0]
+            if d.pos_ == 'PROPN':
+                rateDict['where'].append(ncdoc.text)
+            if d.ent_type_ in ['PERCENT', 'ORDINAL', 'CARDINAL']:
+                rateDict['change'].append(ent.text)
+        # for ent in ents:
+        #     if ent.label_ == 'PROPN' or ent.ent_type_ in ['GPE','ORG']
+        # print(ncdoc, ents)
+    # for ent in ents:
+    #     print(ent)
+    return rateDict
+
 rateDict = {}
 for sent in sentences:
+    rateDict[sent[0]] = extractEntities(sent)
+    print(sent)
+    print(rateDict[sent[0]])
+    print("-----")
+    # print(rateDict)
     # for tok in sent[1]:
-        print('----')
-        ncs = list(sent[1].noun_chunks)
-        print(ncs)
-        rateDict[sent[0]] = {}
-        rateDict[sent[0]]['where'] = []
-        rateDict[sent[0]]['type'] = []
-        rateDict[sent[0]]['change'] = []
-        rate = []
-        for nc in ncs:
-            ncdoc = nlp(nc.text)
-
-            ents = list( ncdoc.ents)
-            print(ents)
-            if len(ents) == 0:
-                if len(ncdoc)==1:
-                    print(ncdoc.text, ncdoc[0].ent_type_, ncdoc[0].pos_)
-                    if (ncdoc)[0].ent_type == 'PROPN':
-                        rateDict[sent[0]]['where'].append(ncdoc.text)
-
-                if len(ncdoc) > 1:
-                    if "tax" in ncdoc.text:
-                        rateDict[sent[0]]['type'].append( ncdoc.text)
-                    print(ncdoc.text)
-                continue
-            for ent in ents:
-                d = nlp(ent.text)[0]
-                if d.ent_type_ in ['GPE','ORG']:
-                    rateDict[sent[0]]['where'].append(ncdoc.text)
-                if d.ent_type_ in ['PERCENT','ORDINAL','CARDINAL']:
-                    rateDict[sent[0]]['change'].append(ent.text)
-            # for ent in ents:
-            #     if ent.label_ == 'PROPN' or ent.ent_type_ in ['GPE','ORG']
-            print(ncdoc,ents)
+    #     print('----')
+    #     ncs = list(sent[1].noun_chunks)
+    #     print(ncs)
+    #     rateDict[sent[0]] = {}
+    #     rateDict[sent[0]]['where'] = []
+    #     rateDict[sent[0]]['type'] = []
+    #     rateDict[sent[0]]['change'] = []
+    #     rate = []
+    #     for nc in ncs:
+    #         ncdoc = nlp(nc.text)
+    #
+    #         ents = list( ncdoc.ents)
+    #         print(ents)
+    #         if len(ents) == 0:
+    #             if len(ncdoc)==1:
+    #                 print(ncdoc.text, ncdoc[0].ent_type_, ncdoc[0].pos_)
+    #                 if (ncdoc)[0].ent_type == 'PROPN':
+    #                     rateDict[sent[0]]['where'].append(ncdoc.text)
+    #
+    #             if len(ncdoc) > 1:
+    #                 if "tax" in ncdoc.text:
+    #                     rateDict[sent[0]]['type'].append( ncdoc.text)
+    #                 print(ncdoc.text)
+    #             continue
+    #         for ent in ents:
+    #             d = nlp(ent.text)[0]
+    #             if d.ent_type_ in ['GPE','ORG']:
+    #                 rateDict[sent[0]]['where'].append(ncdoc.text)
+    #             if d.ent_type_ in ['PERCENT','ORDINAL','CARDINAL']:
+    #                 rateDict[sent[0]]['change'].append(ent.text)
+    #         # for ent in ents:
+    #         #     if ent.label_ == 'PROPN' or ent.ent_type_ in ['GPE','ORG']
+    #         print(ncdoc,ents)
         # for ent in ents:
         #     print(ent)
-print(rateDict)
+# for k,v in rateDict.items():
+#     print(k,v)
+# print(rateDict)
 
 what = list()
 where = list()
